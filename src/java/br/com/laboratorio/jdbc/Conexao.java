@@ -19,10 +19,10 @@ public class Conexao {
   public static Connection getConnection() {
     Connection con = null;
     try {
-      Class.forName("org.postgresql.Driver");
-      //Class.forName("com.mysql.jdbc.Driver");
-      con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/laboratorio", "postgres", "marco");
-      //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/laboratorio", "root", "marco");
+      //Class.forName("org.postgresql.Driver");
+      Class.forName("com.mysql.jdbc.Driver");
+      //con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/laboratorio", "postgres", "marco");
+      con = DriverManager.getConnection("jdbc:mysql://localhost:3306/laboratorio", "root", "marco");
       System.err.println("Conectado com sucesso!");
     } catch (SQLException ex) {
       System.out.println("Erro - Conexão" + ex.getMessage());
