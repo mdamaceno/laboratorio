@@ -7,14 +7,12 @@
 <%@page import="br.com.laboratorio.beans.Cliente"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSP Page</title>
-  </head>
-  <body>
+<%@include file="partials/header.jsp" %>
     <h1>Clientes cadastrados</h1>
+    
+    <input type="text" ng-model="yourName" placeholder="Enter a name here">
+    
+    <p>{{yourName}}</p>
     
     <ul>
       <%
@@ -27,5 +25,5 @@
       <input type="hidden" name="ac" value="novoCliente" />
       <input type="submit" value="Novo Cliente" />
     </form>
-  </body>
-</html>
+      
+<%@include file="partials/footer.jsp" %>

@@ -16,6 +16,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  *
@@ -42,12 +44,28 @@ public class Clientes extends HttpServlet {
     ClienteDAO cDao = new ClienteDAO();
     
     if (action == null) {
+      response.setContentType("application/json");
+      response.setHeader("Cache-Control", "nocache");
       List<Cliente> lista = cDao.index(c);
-
-      request.setAttribute("lista", lista);
-      RequestDispatcher saida = request.getRequestDispatcher("listaClientes.jsp");
-      saida.forward(request, response);
       
+      PrintWriter out = response.getWriter();
+      JSONObject json = new JSONObject();
+      JSONObject map = new JSONObject();
+      JSONArray arr = new JSONArray();
+      
+      
+      for (Cliente cli:lista) {
+        map.put("nome", cli.getNome());
+        map.put("telefone", cli.getTelefone());
+        arr.put(map);
+      }
+
+      out.print(arr.toString());
+
+//      request.setAttribute("lista", output);
+//      RequestDispatcher saida = request.getRequestDispatcher("listaClientes.jsp");
+//      saida.forward(request, response);
+
     } else if(action.equals("novoCliente")) {
       RequestDispatcher saida = request.getRequestDispatcher("cadastroCliente.jsp");
       saida.forward(request, response);
