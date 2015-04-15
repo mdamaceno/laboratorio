@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author mdamaceno
  */
-public class TesteDAO {
+public class TesteUsuarioDAO {
   
   public static void main(String[] args) {
     //testCreate();

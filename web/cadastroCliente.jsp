@@ -1,6 +1,6 @@
 <%@include file="partials/header.jsp" %>
 
-<form action="sendings/scliente.jsp" method="post">
+<form action="clientes" method="post">
   <label>Nome: </label>
   <input type="text" name="edtNome" />
   <br>
@@ -12,10 +12,6 @@
   <label>Sexo: </label>
   Masculino <input type="radio" name="edtSexo" value="0" />
   Feminino <input type="radio" name="edtSexo" value="1" />
-  <br>
-
-  <label>CPF: </label>
-  <input type="number" name="edtCpf" maxlength="11" />
   <br>
 
   <label>Endereço: </label>
@@ -39,6 +35,7 @@
   <input type="text" name="edtEstado" />
   <br>
 
+  <input type="hidden" name="ac" value="gravaCliente" />
   <input type="submit" value="Cadastrar" />
 </form>
 

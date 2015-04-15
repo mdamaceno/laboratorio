@@ -1,5 +1,5 @@
-<%@page import="br.com.laboratorio.beans.Usuario"%>
 <%@page import="java.util.List"%>
+<%@page import="br.com.laboratorio.beans.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,10 +8,14 @@
     <title>JSP Page</title>
   </head>
   <body>
-    <%
-    //List<Usuario> list = (List<Usuario>)request.getAttribute("lst");
-    //for(Usuario u:list) { %>
-    Nome: <%= //u.getNome() %>
-    <% //} %>
+    <h1>Usuários do sistema</h1>
+    
+    <ul>
+      <%
+      List<Usuario> lista = (List<Usuario>)request.getAttribute("lista");
+      for(Usuario u:lista) { %>
+      <li><%= u.getNome() %></li>
+      <% } %>
+    </ul>
   </body>
 </html>
